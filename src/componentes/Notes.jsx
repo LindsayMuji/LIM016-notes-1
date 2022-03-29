@@ -22,7 +22,7 @@ export const Notes = ( props ) => {
             return (
                 <div key={note.id} className='note-list'>
                     <h3>{note.title}</h3>
-                    <p>{note.description}</p>
+                    <p className= 'noteDescrip'>{note.description}</p>
                     <div className='note-footer'>
                         <h2> {note.date}</h2>
                         <div>
