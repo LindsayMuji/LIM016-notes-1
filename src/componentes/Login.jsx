@@ -53,18 +53,11 @@ export const LogIn = () => {
                 </div>
                 <p className='textOption'>or log in with:</p>
                 <div className='box-fb-go'>
-                    <img src={imgIconoGo} alt="" className='img-fb' ></img>
+                    <FcGoogle onClick= {handleGoogleSubmit} className='img-go' size='2em' id='log'></FcGoogle>
                     <img src={imgIconoFb} alt="" className='img-go' ></img>
                 </div>
                 <p className='optionSignUp'>Don´t you have an account?<Link to='/signup'> Sign Up </Link></p>
             </form>
-
-            <p className='textOption' id='log'>or log in with:</p>
-            <div className='box-fb-go' id='log'>
-                <FcGoogle onClick= {handleGoogleSubmit} className='img-go' size='2em' id='log'></FcGoogle>
-                <img src={imgIconoFb} alt="" className='img-fb' id='log'></img>
-            </div>
-            <p className='optionSignUp' id='log'>Don´t you have an account?<Link to='/signup'> Sign Up </Link></p>
         </section>
     );
 };
