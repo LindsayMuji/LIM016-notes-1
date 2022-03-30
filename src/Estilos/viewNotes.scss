@@ -20,7 +20,7 @@
 
 .boxName>h3{
     font-family: "Risque";
-    font-size: 40px;
+    font-size: 3vw;
 }
 
 .box-search{
@@ -133,7 +133,8 @@
     display: none;
 }
 
-.note-footer{
+
+  .note-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;

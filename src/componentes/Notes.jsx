@@ -18,11 +18,7 @@ export const Notes = ( props ) => {
         }      
     };
 
-    const editNotes = () => {
         
-        console.log('hola');
-    };
-    
     const templateList = props.arrayNotes.map((note) => { 
         return (
             <div key={note.id} className='note-list'>
@@ -36,8 +32,7 @@ export const Notes = ( props ) => {
                         <ModalEdit note={note} ></ModalEdit>
                     </div>
                 </div>
-            </div>
-            
+            </div>        
         )
     })
     return templateList;
