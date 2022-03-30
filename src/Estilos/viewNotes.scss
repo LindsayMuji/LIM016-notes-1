@@ -126,25 +126,24 @@
   .noteDescrip{
     white-space: pre-line;
     overflow-y: scroll;
-    
+    scroll-behavior: smooth;    
   }
 
   .noteDescrip::-webkit-scrollbar {
     display: none;
 }
 
-  
 
-  .note-footer{
+  .note-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-  }
+}
 
-  .note-footer>h2{
+.note-footer>h2{
     font-size: 1em;
-  }
+}
 
 //Estlos para agregar notas
 

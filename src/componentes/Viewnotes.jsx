@@ -85,7 +85,7 @@ export const ViewNotes = (props) =>{
             })
             setArrayNotes(newArraySearchNotes);
         }else{
-            setArrayNotes(searchArrayNotes)
+            setArrayNotes(searchArrayNotes);
         }
     };
 
