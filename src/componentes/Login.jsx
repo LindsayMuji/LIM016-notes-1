@@ -43,8 +43,8 @@ export const LogIn = () => {
                     <h1 className='name-notes'>Simple Notes</h1>
                 </div>
             </div>
-            {error && <p className='error'>{error}</p>}
             <form action="" className='box-form' onSubmit={handleSubmit}>
+                {error && <p className='error'>{error}</p>}
                 <div className='boxInput'>
                     <input type="email" className='email' placeholder='Enter your email' onChange={handleEmail} />
                     <input type="password" className='paswword' placeholder='Password' onChange={handlePassword} />

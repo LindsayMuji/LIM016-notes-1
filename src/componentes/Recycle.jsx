@@ -2,6 +2,8 @@
 import React from 'react';
 import { MdDeleteForever, MdAutorenew  } from 'react-icons/md';
 import {deleteNote, updateStateNote } from '../firebase/firestore';
+import  imgRecycle from '../imagenes/recycle-bin.png';
+import '../Estilos/viewNotes.scss';
 
 export const Recycle = (  props ) => { 
 
@@ -37,7 +39,7 @@ export const Recycle = (  props ) => {
                     <h2></h2>
                     <div>
                         <MdDeleteForever className='delete-icon' size='1.3em'onClick={()=> deleteNoteRecycler(note.id, note.title)}></MdDeleteForever>
-                        <MdAutorenew size='1.3em' onClick={()=> resetNotes(note.id, note.title)}></MdAutorenew>  
+                        <MdAutorenew size='1.3em' onClick={()=> resetNotes(note.id, note.title)}></MdAutorenew>
                     </div>
                 </div>
             </div>

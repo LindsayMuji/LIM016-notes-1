@@ -123,10 +123,10 @@ export const ViewNotes = (props) =>{
                                     <p className='img-option' id='textAdd'>Add Notes</p>
 
                                 </div>
-                                <div className='btnCategory'>
+                                {/* <div className='btnCategory'>
                                     <img src={imgCategoria} alt="" className='img-option' id='imgCategory'></img>
                                     <p className='img-option' id='textCategory'>Category</p>
-                                </div>
+                                </div> */}
                                 <div className='btnRecycle'>
                                     <img src={imgRecycle} alt="" className='img-option' id='imgRecycle' onClick={recycler}></img>
                                     <p className='img-option' id='textRecycle'>Recycle</p>

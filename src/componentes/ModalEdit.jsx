@@ -2,62 +2,62 @@
 import React, {useState} from 'react';
 import { Button, Modal, Form} from 'semantic-ui-react'
 import { MdCreate } from 'react-icons/md';
-
-function exampleReducer(state, action) {
-  switch (action.type) {
-    case 'close':
-      return { open: false }
-    case 'open':
-      return { open: true, size: action.size }
-    case 'save':
-      console.log(' que muestra?', title,description);
-      return{open:false}
-    default:
-      throw new Error('Unsupported action...')
+import {updateNote} from '../firebase/firestore';
+export const ModalEdit = ({note, arrayNotes, setArrayNotes}) => {
+  const  exampleReducer = (state, action) => {
+    switch (action.type) {
+      case 'close':
+        return { open: false }
+      case 'open':
+        return { open: true, size: action.size }
+      case 'save':
+        return{ open: false };
+      default:
+        throw new Error('Unsupported action...')
+    }
   }
-}
-
-export const ModalEdit = ({note}) => {
   const [state, dispatch] = React.useReducer(exampleReducer, {
     open: false,
-    size: undefined,
+    size: undefined
   })
   const { open, size } = state
-
-
-
-  const [title, setTitle]= useState(note.title);
-  const [description, setDescription]= useState(note.description);
-
-
-  const handleTitle = (e) =>{
-    setTitle(e.target.value);       
+  const editNote = (e) => {
+    e.preventDefault();
+    updateNote(note.id, {title: e.target.title.value, description:e.target.description.value})
+    .then((response) => {
+      arrayNotes.forEach(element => {
+        if(element.id === note.id){
+          element.title = e.target.title.value;
+          element.description = e.target.description.value;
+          const temp = [...arrayNotes];
+          setArrayNotes(temp);
+        }
+      });
+      note.title = e.target.title.value;
+    })
+    .catch((error) => {
+    });
+    dispatch({ type: 'save'})
   }
-
-  const handleDescription = (e) =>{
-    setDescription(e.target.value);       
-  }
-
   return (
     <>
-    <MdCreate className='edit-icon' size='1.3em' onClick={() => dispatch({ type: 'open', size: 'mini' })}></MdCreate>
-      
+    <MdCreate className='edit-icon' size='1.3em' onClick={() => dispatch({ type: 'open', size: 'mini'})}></MdCreate>
       <Modal
         size={size}
         open={open}
         onClose={() => dispatch({ type: 'close' })}
       >
         <Modal.Content>
-          <Form>
+          <Form onSubmit={editNote}>
                 <Form.Field>
-                  <input placeholder='Title' defaultValue={title} onChange={handleTitle}/>
+                  <input placeholder='Title' defaultValue={note.title} id='title'/>
                 </Form.Field>
                 <Form.Field>
-                  <input type='text' placeholder='Description' defaultValue={description} onChange={handleDescription}/>
+                  <textarea className='noteDescrip' placeholder='Description' id='description' defaultValue={note.description}></textarea>
                 </Form.Field>
                 <Modal.Actions>
-                  <Button color='red' onClick={() => dispatch({ type: 'close' })}>Cancel</Button>
-                  <Button color='green'onClick={() => dispatch({ type: 'save' })}>Save Chages</Button>
+                  <Button type = "button" color='red' onClick={() => dispatch({ type: 'close' })}>Cancel</Button>
+                  <Button type = "submit" color='green'>Save Chages</Button>
                 </Modal.Actions>
             </Form>
         </Modal.Content>

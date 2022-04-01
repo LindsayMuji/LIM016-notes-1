@@ -29,7 +29,7 @@ export const Notes = ( props ) => {
                     <h2> {note.date}</h2>
                     <div>
                         <MdDeleteForever className='delete-icon' size='1.3em' onClick={() => deleteNotes(note.id, note.title)}></MdDeleteForever>
-                        <ModalEdit note={note} ></ModalEdit>
+                        <ModalEdit note={note} arrayNotes={props.arrayNotes} setArrayNotes={props.setArrayNotes} ></ModalEdit>
                     </div>
                 </div>
             </div>        

@@ -21,3 +21,4 @@ export const getNotesByUserAndState =  (userId, state) => getDocs(queryGetNotesB
 export const getNote = (id) => getDoc(doc(db, 'notes', id));
 export const deleteNote = (id) => deleteDoc(doc(db, 'notes', id));
 export const updateStateNote = (idNote, state) => updateDoc(doc(db, 'notes', idNote), {state:state});
+export const updateNote = (idNote, note) => updateDoc(doc(db, 'notes', idNote), {title:note.title, description:note.description});
