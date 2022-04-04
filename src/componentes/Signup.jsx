@@ -17,8 +17,7 @@ export const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const currentUserSingUp = await createUser(email, password)
-            console.log('id ususrio registrado', currentUserSingUp);
+            const currentUserSingUp = await createUser(email, password);
             navigate('/')
         } catch (error) {
             setError('Error: '+ error.message);
